@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 function Sport() {
   return (
     <View>
-      <Text>Sport</Text>
+      <Text>В разработке...😊</Text>
     </View>
   );
 }

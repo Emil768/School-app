@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 function Gallery() {
   return (
     <View>
-      <Text>Gallery</Text>
+      <Text>В разработке...😊</Text>
     </View>
   );
 }

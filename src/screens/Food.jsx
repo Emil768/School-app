@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 function Food() {
   return (
     <View>
-      <Text>Food</Text>
+      <Text>В разработке...😊</Text>
     </View>
   );
 }

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonContent: {
-    marginTop: 10,
+    marginTop: 15,
   },
 });
 
