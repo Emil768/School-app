@@ -14,7 +14,7 @@ function ButtonPrimary(props) {
     <View style={styles.buttonContent}>
       <TouchableOpacity
         activeOpacity={0.9}
-        onPress={() => props.navigator.navigate("Новости")}
+        onPress={() => props.onNavigate(props.enTitle)}
       >
         <View style={styles.button}>
           <Text style={styles.buttonText}>{props.title}</Text>

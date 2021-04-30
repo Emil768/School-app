@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-function Sport() {
+function Contacts() {
   return (
     <View>
-      <Text>Sport</Text>
+      <Text>Contacts!</Text>
     </View>
   );
 }
 
-export default Sport;
+export default Contacts;

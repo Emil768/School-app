@@ -1,67 +1,92 @@
 import * as React from "react";
-import { View, Text, Button } from "react-native";
+import { Text, View, Button } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import ButtonPrimary from "../components/ButtonPrimary";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+//screens
+import Home from "../screens/Home";
+import Gallery from "../screens/Gallery";
+import Contacts from "../screens/Contacts";
+import Food from "../screens/Food";
+import Map from "../screens/Map";
+import Sport from "../screens/Sport";
+import News from "../screens/News";
+import Employees from "../screens/Employees";
 
-//components
+const Tab = createBottomTabNavigator();
 
-//tabs
-function Home({ navigation }) {
+function MyTabs() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 20, color: "#000", fontWeight: "800" }}>
-        <View>
-          <ButtonPrimary title="Новости" />
-          <ButtonPrimary title="Сотрудники" />
-          <ButtonPrimary title="Питание" navigator={navigation} />
-        </View>
-      </Text>
-    </View>
-  );
-}
+    <Tab.Navigator
+      tabBarOptions={{
+        showLabel: false,
+        activeTintColor: "#3289EC",
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="home" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Sport"
+        component={Sport}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="sports-kabaddi" size={24} color={color} />
+          ),
+        }}
+      />
 
-function News({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 20, color: "#000", fontWeight: "800" }}>
-        Новости
-      </Text>
-      <Button title="Вернуться" onPress={() => navigation.goBack()}></Button>
-    </View>
-  );
-}
+      <Tab.Screen
+        name="Gallery"
+        component={Gallery}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="images" size={24} color={color} />
+          ),
+        }}
+      />
 
-function Gallery() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 20, color: "#000", fontWeight: "800" }}>
-        Gallery
-      </Text>
-    </View>
-  );
-}
-
-function Sport() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 20, color: "#000", fontWeight: "800" }}>
-        Sport
-      </Text>
-    </View>
+      <Tab.Screen
+        name="Map"
+        component={Map}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="map-marked-alt" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Contacts"
+        component={Contacts}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="contacts" size={24} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 }
 
 const Stack = createStackNavigator();
 
-export default function StackNavigation() {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator initialRouteName="Tabs">
         <Stack.Screen name="News" component={News} />
-        <Stack.Screen name="Gallery" component={Gallery} />
-        <Stack.Screen name="Sport" component={Sport} />
+        <Stack.Screen name="Employees" component={Employees} />
+        <Stack.Screen name="Food" component={Food} />
+        <Stack.Screen name="Tabs" component={MyTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
