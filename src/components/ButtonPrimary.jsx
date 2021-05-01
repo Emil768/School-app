@@ -8,16 +8,12 @@ import {
   View,
 } from "react-native";
 
-function ButtonPrimary(props) {
-  console.log(props);
+function ButtonPrimary({ title, enTitle, onNavigate }) {
   return (
     <View style={styles.buttonContent}>
-      <TouchableOpacity
-        activeOpacity={0.9}
-        onPress={() => props.onNavigate(props.enTitle)}
-      >
+      <TouchableOpacity activeOpacity={0.9} onPress={() => onNavigate(enTitle)}>
         <View style={styles.button}>
-          <Text style={styles.buttonText}>{props.title}</Text>
+          <Text style={styles.buttonText}>{title}</Text>
         </View>
       </TouchableOpacity>
     </View>

@@ -28,7 +28,10 @@ function HomeStackScreen() {
       <HomeStack.Screen
         name="News"
         component={News}
-        options={{ headerTitle: "Новости", headerTitleAlign: "center" }}
+        options={{
+          headerTitle: "Новости",
+          headerTitleAlign: "center",
+        }}
       />
       <HomeStack.Screen
         name="Employees"
