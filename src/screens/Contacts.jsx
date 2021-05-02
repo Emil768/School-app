@@ -27,16 +27,6 @@ function Contacts() {
             width: "100%",
           }}
         >
-          {/* <Text
-            style={{
-              textAlign: "center",
-              marginBottom: 30,
-              color: "#fff",
-              fontSize: 22,
-            }}
-          >
-            МБОУ "Белогорская средняя школа № 4"{" "}
-          </Text> */}
           <Image source={require("../img/school.png")} />
         </View>
       </View>

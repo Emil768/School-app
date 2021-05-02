@@ -1,0 +1,10 @@
+{
+  "food": [
+    {
+      "id": 1,
+      "title": "Pizza",
+      "image": "require('../img/pizza.png')",
+      "price": 100
+    }
+  ]
+}
