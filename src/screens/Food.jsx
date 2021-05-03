@@ -5,8 +5,11 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Modal,
+  Image,
+  TextInput,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { food } from "../../public/food";
 import FoodInfo from "../components/FoodInfo";
@@ -14,6 +17,16 @@ import FoodInfo from "../components/FoodInfo";
 function Food() {
   const [sortPrice, setSortPrice] = useState(null);
   const [data, setData] = useState(food);
+  const [searchValue, setSearchValue] = useState("");
+  const [modal, setModal] = useState(false);
+
+  const handlerToggleModal = () => {
+    setModal(!modal);
+  };
+
+  const handlerCloseModal = () => {
+    setModal(false);
+  };
 
   const handlerSortPrice = () => {
     setSortPrice(!sortPrice);
@@ -22,10 +35,22 @@ function Food() {
     });
     setData(res);
   };
+
+  const filterData = data.filter((item) => {
+    return item.title.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1;
+  });
+
   return (
     <View style={styles.content}>
+      <TextInput
+        style={styles.input}
+        onChangeText={(text) => setSearchValue(text)}
+        placeholder="Поиск"
+      />
       <View style={styles.contentTop}>
-        <Text style={styles.text}>График</Text>
+        <Text style={styles.text} onPress={handlerToggleModal}>
+          График
+        </Text>
         <Text style={styles.text}>Наименование</Text>
         <TouchableOpacity
           style={styles.priceWrapper}
@@ -49,10 +74,35 @@ function Food() {
         </TouchableOpacity>
       </View>
       <ScrollView contentContainerStyle={styles.foodWrapper}>
-        {data.map((item) => {
-          return <FoodInfo key={item.id} {...item} />;
-        })}
+        {filterData.length ? (
+          filterData.map((item) => {
+            return <FoodInfo key={item.id} {...item} />;
+          })
+        ) : (
+          <Text>Продуктов нет в наличии</Text>
+        )}
       </ScrollView>
+      <Modal visible={modal} transparent>
+        <View style={styles.modalBackGround}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <MaterialCommunityIcons
+                name="close"
+                size={24}
+                color="black"
+                onPress={handlerCloseModal}
+              />
+            </View>
+            <View>
+              <Image
+                source={require("../img/chartFood.png")}
+                style={styles.modalImage}
+                resizeMode="contain"
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -64,6 +114,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
   },
+  input: {
+    width: "80%",
+    backgroundColor: "#F6F6F6",
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "#E8E8E8",
+    paddingVertical: 5,
+    paddingHorizontal: 16,
+    marginBottom: 20,
+  },
 
   contentTop: {
     flexDirection: "row",
@@ -71,6 +131,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     fontWeight: "bold",
     marginBottom: 20,
+    width: "100%",
   },
   text: {
     fontWeight: "bold",
@@ -93,6 +154,31 @@ const styles = StyleSheet.create({
   foodWrapper: {
     width: "100%",
     paddingHorizontal: 20,
+  },
+  modal: {
+    //
+  },
+  modalBackGround: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalContent: {
+    width: "90%",
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    borderRadius: 8,
+  },
+  modalHeader: {
+    width: "100%",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  modalImage: {
+    width: 280,
+    height: 280,
   },
 });
 

@@ -13,7 +13,7 @@ function Home({ navigation }) {
           <Text style={styles.title}>
             МБОУ "Белогорская средняя школа № 4"{" "}
           </Text>
-          <Image source={require("../img/school.png")} />
+          <Image source={require("../img/school.jpeg")} style={styles.image} />
         </View>
       </View>
 
@@ -33,6 +33,11 @@ function Home({ navigation }) {
           enTitle="Food"
           onNavigate={handlerNavigate}
         />
+        {/* <ButtonPrimary
+          title="Расписание"
+          enTitle="Food"
+          onNavigate={handlerNavigate}
+        /> */}
       </View>
     </View>
   );
@@ -65,6 +70,11 @@ const styles = StyleSheet.create({
   },
   buttonsWrapper: {
     marginTop: 80,
+  },
+  image: {
+    borderRadius: 100,
+    width: 130,
+    height: 130,
   },
 });
 
