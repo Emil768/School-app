@@ -4,7 +4,7 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 //db
-import { employees } from "../../public/employees.db.json";
+import { employees } from "../../public/employees.db";
 import Employee from "../components/Employee";
 
 function Employees() {
