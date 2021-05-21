@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import ButtonPrimary from "../components/ButtonPrimary";
 
 function Home({ navigation }) {
@@ -33,11 +33,6 @@ function Home({ navigation }) {
           enTitle="Food"
           onNavigate={handlerNavigate}
         />
-        {/* <ButtonPrimary
-          title="Расписание"
-          enTitle="Food"
-          onNavigate={handlerNavigate}
-        /> */}
       </View>
     </View>
   );

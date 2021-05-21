@@ -7,13 +7,15 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 //screens
 import Home from "../screens/Home";
-import Gallery from "../screens/Gallery";
+import Gallery from "../screens/Schedule";
 import Contacts from "../screens/Contacts";
 import Food from "../screens/Food";
 import Map from "../screens/Map";
 import Sport from "../screens/Sport";
 import News from "../screens/News";
 import Employees from "../screens/Employees";
+import NewsInfo from "../screens/NewsInfo";
+import Schedule from "../screens/Schedule";
 
 const HomeStack = createStackNavigator();
 
@@ -30,6 +32,13 @@ function HomeStackScreen() {
         component={News}
         options={{
           headerTitle: "Новости",
+          headerTitleAlign: "center",
+        }}
+      />
+      <HomeStack.Screen
+        name="NewsInfo"
+        component={NewsInfo}
+        options={{
           headerTitleAlign: "center",
         }}
       />
@@ -65,9 +74,9 @@ function GalleryStackScreen() {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen
-        name="Gallery"
-        component={Gallery}
-        options={{ headerTitle: "Галерея", headerTitleAlign: "center" }}
+        name="Schedule"
+        component={Schedule}
+        options={{ headerTitle: "Расписание", headerTitleAlign: "center" }}
       />
     </SettingsStack.Navigator>
   );
@@ -135,11 +144,11 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Gallery"
+          name="Schedule"
           component={GalleryStackScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <FontAwesome5 name="images" size={24} color={color} />
+              <MaterialIcons name="schedule" size={24} color={color} />
             ),
           }}
         />

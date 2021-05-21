@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 function ButtonPrimary({ title, enTitle, onNavigate }) {
   return (

@@ -8,10 +8,11 @@ import {
   Modal,
   Image,
   TextInput,
+  Dimensions,
 } from "react-native";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { food } from "../../public/food";
+import { food } from "../../public/food.db";
 import FoodInfo from "../components/FoodInfo";
 
 function Food() {
@@ -60,13 +61,13 @@ function Food() {
           <View style={styles.buttonsSortWrapper}>
             <FontAwesome
               name="sort-up"
-              size={30}
+              size={22}
               color={sortPrice === false ? "#3289EC" : "#000"}
               style={styles.buttonSort}
             />
             <FontAwesome
               name="sort-down"
-              size={30}
+              size={22}
               color="black"
               color={sortPrice === true ? "#3289EC" : "#000"}
             />
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   input: {
-    width: "80%",
+    width: Dimensions.get("window").width - 20,
     backgroundColor: "#F6F6F6",
     borderRadius: 100,
     borderWidth: 1,
@@ -130,18 +131,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 40,
     width: "100%",
   },
   text: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 14,
   },
   priceWrapper: {
     flexDirection: "row",
     alignItems: "center",
   },
   priceText: {
+    fontSize: 14,
     marginRight: 10,
     fontWeight: "bold",
   },

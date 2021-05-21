@@ -4,7 +4,7 @@ import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import ImageViewer from "react-native-image-zoom-viewer";
 
-import { sportGallery } from "../../public/sportGallery";
+import { sportGallery } from "../../public/sport.db.";
 
 function Sport() {
   const [modal, setModal] = useState(false);
@@ -31,7 +31,7 @@ function Sport() {
       </View>
 
       <View style={styles.photoWrapper}>
-        <Text style={{ marginBottom: 20, fontSize: 16 }}>Фотогалерея</Text>
+        <Text style={styles.photoWrapperTitle}>Фотогалерея</Text>
         <Image source={require("../img/box.jpg")} style={styles.photoImage} />
         <MaterialIcons
           name="photo-library"
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   contentTopText: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: "center",
     marginBottom: 10,
   },
@@ -83,6 +83,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "relative",
     marginTop: 20,
+  },
+  photoWrapperTitle: {
+    marginBottom: 20,
+    fontSize: 16,
   },
   photoImage: {
     width: 300,
