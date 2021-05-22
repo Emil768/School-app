@@ -13,7 +13,7 @@ function Home({ navigation }) {
           <Text style={styles.title}>
             МБОУ "Белогорская средняя школа № 4"{" "}
           </Text>
-          <Image source={require("../img/school.jpeg")} style={styles.image} />
+          <Image source={require("../img/school.jpg")} style={styles.image} />
         </View>
       </View>
 

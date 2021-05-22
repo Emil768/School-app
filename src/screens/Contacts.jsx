@@ -9,7 +9,7 @@ function Contacts() {
     <View style={styles.content}>
       <View style={styles.contentTop}>
         <View style={styles.logo}>
-          <Image source={require("../img/school.png")} />
+          <Image source={require("../img/school.jpg")} style={styles.image} />
         </View>
       </View>
       <View style={styles.contactWrapper}>
@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
     bottom: -40,
     alignItems: "center",
     width: "100%",
+  },
+  image: {
+    borderRadius: 100,
+    width: 130,
+    height: 130,
   },
   contactWrapper: {
     paddingHorizontal: 20,

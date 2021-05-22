@@ -10,7 +10,6 @@ import { schedule } from "../../public/schedule.db";
 function Schedule() {
   const [selectedStaff, setSelectedStaff] = useState(schedule[0].title);
   const [activeDay, setActiveDay] = useState(0);
-  console.log(selectedStaff);
   return (
     <View style={styles.content}>
       <View style={styles.pickerWrapper}>
